@@ -18,7 +18,8 @@ Update the required addItem function to:
     If there was no room and the item could not be added return false
 */
 function addItem(item) {
-  if (isFull()) {
+  const full = isFull();
+  if (full) {
     return false;
   } else {
     basket.push(item);
