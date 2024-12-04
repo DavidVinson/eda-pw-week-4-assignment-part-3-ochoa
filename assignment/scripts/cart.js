@@ -68,10 +68,19 @@ Create a function called removeItem. It should:
 */
 function removeItem(item) {
   const itemIndex = basket.indexOf(item); //will be a number
-  console.log('itemIndex', itemIndex, item);
 
-  //   const removedItem = basket.splice(itemIndex, 1);
-  //   console.log('removed item', removedItem);
+  //arr.indexOf returns -1 if not in the array
+  //check for positive values and value of zero (first item in the basket!)
+  if (itemIndex >= 0) {
+    //look up how arr.splice works
+    const removedItem = basket.splice(itemIndex, 1);
+    //arr.splice returns an array, must index this array for the actual item
+    const justTheItem = removedItem[0];
+    return justTheItem;
+  }
+
+  //return null if item not in the basket
+  return null;
 }
 
 //basket size
@@ -95,18 +104,24 @@ console.log('spoon added to basket', addItem('spoon'));
 console.log(`basket has ${basket.length} items`);
 
 //empty basket
-console.log('empty the basket!');
-empty();
+// console.log('empty the basket!');
+// empty();
 
 //basket size
-console.log(`basket has ${basket.length} items`);
+console.log(`basket is: `, basket);
+
+//create variable to hold a removedItem
+let foundItem = '';
 
 //remove spoon from basket
-console.log(removeItem('spoon'));
-//remove fork from basket
-console.log(removeItem('fork'));
+foundItem = removeItem('spoon');
+console.log(foundItem ? `Removed ${foundItem} from the basket` : 'spoon was not found...');
+// remove fork from basket
+foundItem = removeItem('fork');
+console.log(foundItem ? `Removed ${foundItem} from the basket` : 'fork was not found...');
 //remove beans from basket
-console.log(removeItem('beans'));
+foundItem = removeItem('beans');
+console.log(foundItem ? `Removed ${foundItem} from the basket` : 'beans was not found...');
 
 // DO NOT MODIFY
 // Used for automated testing
