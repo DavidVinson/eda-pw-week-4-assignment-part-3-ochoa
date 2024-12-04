@@ -103,13 +103,6 @@ console.log('spoon added to basket', addItem('spoon'));
 //basket size
 console.log(`basket has ${basket.length} items`);
 
-//empty basket
-// console.log('empty the basket!');
-// empty();
-
-//basket size
-console.log(`basket is: `, basket);
-
 //create variable to hold a removedItem
 let foundItem = '';
 
@@ -122,6 +115,13 @@ console.log(foundItem ? `Removed ${foundItem} from the basket` : 'fork was not f
 //remove beans from basket
 foundItem = removeItem('beans');
 console.log(foundItem ? `Removed ${foundItem} from the basket` : 'beans was not found...');
+
+//empty basket
+console.log('empty the basket!');
+empty();
+
+//basket size
+console.log(`basket has ${basket.length} items`);
 
 // DO NOT MODIFY
 // Used for automated testing
