@@ -1,4 +1,4 @@
-# Ochoa Tier 1 Week 5 Class | [Video]("")
+# Ochoa Tier 1 Week 5 Class | [Video](https://vimeo.com/manage/videos/1036536019/c109d7b953)
 
 ### Reminders
 
