@@ -1,72 +1,111 @@
-# Unit 4, Part 3 - Cart System
+# Ochoa Tier 1 Week 5 Class | [Video]("")
 
-This unit we'll be pulling together all of the Javascript techniques you've learned thus far as well as practicing with HTML & CSS.
+### Reminders
 
-## Topics Covered
+Good habits:
 
-- variables
-- arrays
-- conditionals
-- functions
-- HTML & CSS
+- smaller more frequent practice sessions are better than 1-2 long ones
+- testing your code
+- commenting your code
+- committing often with commit messages (trick of starting with "this will")
 
-## Assignment - Cart System 
+### Function Review
 
-In this section we will write some functions that might be used in a simple cart system for a store. 
+Functions are critical to understand moving forward!
 
-### Required Features
-Update the `cart.js` file to do the following:
+Example function definition:
 
-- Create a global variable named `basket` and set it to an empty array.
-
-- Create a function called `addItem`. It should:
-  - take an input parameter for a string `item`
-  - add the new item to the global array `basket`. 
-  - return `true` indicating the item was added
-
-- Create a function called `listItems`. It should:
-  - loop over the items in the `basket` array
-  - console.log each individual item on a new line
-
-- Create a function called `empty`. It should:
-  - reset the `basket` to an empty array
-  - do not use `basket = []` to reset the array
-
-> __IMPORTANT__
-> Make sure that you are writing code *in the file* to test every function that you write!
-
-For example, to test `addItem`:
 ```
-console.log(`Basket is ${basket}`);
-console.log('Adding apples (expect true)', addItem('apples'));
-console.log(`Basket is now ${basket}`);
+function sayHello( name ){
+  return 'Hello, ' + name;
+  // OR
+  // return `Hello, ${name}`;
+}
 ```
 
-### Stretch Goals 
-Remember that Stretch Goals are not required, but will help you to further develop concepts from the skills we have covered.
+Calling the function:
 
-__Using functions in other functions!__
+```
+let message = sayHello;
+console.log( 'The message is', message );
+```
 
-1. Add a global `const` named `maxItems` and set it to 5.
+Key parts:
 
-2. Create a function called isFull(). It should:
-  - return `false` if the basket contains *less* than max number of items
-  - return `true` otherwise (equal or more than maxItems)
+- function name - `sayHello`
+- input parameters - `name`
+- output or return value
 
-3. Update the required `addItem` function to:
-  - Use the `isFull` function to prevent more than `maxItems` from being added to the basket. 
-  - If an item was added to the array, return `true`
-  - If there was no room and the item could not be added return `false`
+### Function Summary
 
-__Using Array built-in functions!__
+- Functions are values. They can be assigned, copied or declared in any place of the code.
+- If the function is declared as a separate statement in the main code flow, that’s called a “Function Declaration”.
+- If the function is created as a part of an expression, it’s called a “Function Expression”.
+- Function Declarations are processed before the code block is executed. They are visible everywhere in the block.
+- Function Expressions are created when the execution flow reaches them.
 
-4. Create a function called `removeItem`. It should:
-  - Take an input parameter for a string `item`
-  - Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
-  - Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
-  - Return the item removed or `null` if the item was not found
+In most cases when we need to declare a function, a Function Declaration is preferable, because it is visible prior to the declaration itself. That gives us more flexibility in code organization, and is usually more readable.
 
-## Assignment Submission
-Check in your repo, then turn in your work via the EDA Assignment Portal, as usual and don't hesitate to hit up the Slack channel as needed!
+#### [Difference between function declaration and function expression](https://javascript.info/function-expressions#function-expression-vs-function-declaration)
 
-**REMINDER:** Make sure to answer the Slack discussion question for this week!
+#### Assignment Code Walkthrough
+
+Work through Stretch goal for `isFull` - using a function inside another function.
+
+Can write `addItem` or start with the following:
+
+```JavaScript
+basket = [];
+maxItems = 3;
+
+function addItem( item ) {
+    basket.push(item);
+    return true;
+}
+
+// Remember to test your functions!!!
+console.log('Basket is:', basket);
+console.log('Add apple: ', addItem('apple'));
+console.log('Add banana: ', addItem('banana'));
+console.log('Add orange: ', addItem('orange'));
+console.log('Add kiwi: ', addItem('kiwi'));
+console.log('Basket is:', basket);
+```
+
+Work toward:
+
+```JavaScript
+basket = [];
+maxItems = 3;
+
+function addItem( item ) {
+  let full = isFull();
+  if ( full ){
+    return false;
+  } else {
+    basket.push(item);
+    return true;
+  }
+}
+
+// Remember to test your functions!!!
+console.log('Basket is:', basket);
+console.log('Add apple: ', addItem('apple'));
+console.log('Add banana: ', addItem('banana'));
+console.log('Add orange: ', addItem('orange'));
+console.log('Add kiwi - expect false now: ', addItem('kiwi'));
+console.log('Basket is:', basket);
+
+function isFull() {
+  if (basket.length >= maxItems){
+    return true;
+  }
+  return false;
+}
+basket = [1, 2, 3]
+console.log('Basket is:', basket);
+console.log('isFull? - true', isFull());
+basket = [ 1 ]
+console.log('Basket is:', basket);
+console.log('isFull? - false', isFull());
+```
