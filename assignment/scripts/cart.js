@@ -2,6 +2,7 @@ console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!
 
+<<<<<<< Updated upstream
 //Create a global variable named basket and set it to an empty array.
 const basket = [];
 const maxItems = 5;
@@ -123,6 +124,69 @@ empty();
 
 //basket size
 console.log(`basket has ${basket.length} items`);
+=======
+//calling the function addNumbers
+// const sum = addNumbers(2, 4);
+// console.log('sum', sum);
+
+//function declaration (hoisting)
+// function addNumbers(num1, num2) {
+//   return num1 + num2;
+// }
+
+// if (sum > 5) {
+//   console.log('yes, 6 is greater than 5');
+// }
+
+// const diff = subtractNumbers(5, 6);
+// console.log('diff', diff);
+
+//function expression
+// const subtractNumbers = function (num1, num2) {
+//   return num2 - num1;
+// };
+
+basket = [];
+maxItems = 3;
+
+function addItem(item) {
+  //a condition to check for 'full'
+  const full = isFull();
+  //can also just call 'isFull()' in the conditional statement
+  if (full) {
+    return false;
+  } else {
+    basket.push(item);
+    return true;
+  }
+}
+
+// Remember to test your functions!!!
+console.log('Basket is:', basket);
+console.log('Add apple: ', addItem('apple'));
+console.log('Add banana: ', addItem('banana'));
+console.log('Add orange: ', addItem('orange'));
+console.log('Add kiwi: ', addItem('kiwi'));
+console.log('Basket is:', basket);
+
+console.log('Add grapes: ', addItem('grapes'));
+
+console.log('Basket is:', basket.length);
+
+/*
+Create a function called isFull(). It should:
+  - return `false` if the basket contains *less* than max number of items
+  - return `true` otherwise (equal or more than maxItems)
+*/
+
+function isFull() {
+  if (basket.length < maxItems) {
+    return false;
+  } else {
+    return true;
+  }
+}
+>>>>>>> Stashed changes
 
 // DO NOT MODIFY
 // Used for automated testing
